@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from taxi.models import Driver, Car, Manufacturer
 from django.views import generic
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView
 
 
 def index(request):
@@ -34,6 +34,7 @@ class CarListView(generic.ListView):
 
 class CarDetailView(DetailView):
     model = Car
+    template_name = "taxi/car_detail.html"
 
 
 class DriverListView(generic.ListView):
@@ -44,6 +45,7 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(DetailView):
     model = Driver
+    template_name = "taxi/driver_detail.html"
 
 
 def get_queryset(self):
